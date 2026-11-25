@@ -1,0 +1,22 @@
+server:
+  address: ${SERVER_ADDRESS:127.0.0.1}
+spring:
+  datasource:
+    url: ${JDBC_URL:jdbc:postgresql://localhost:5433/docflow}
+    username: ${DB_USER:docflow}
+    password: ${DB_PASSWORD:docflow_local}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  flyway:
+    enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+docflow:
+  demo:
+    author-password: ${AUTHOR_PASSWORD:author_local}
+    approver-password: ${APPROVER_PASSWORD:approver_local}
